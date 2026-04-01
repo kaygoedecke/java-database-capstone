@@ -325,4 +325,4 @@ _As a doctor, I want to view the patient details for upcoming appointments, so t
 
 **Notes:**  
 - Access should follow privacy and role-based access rules.  
-- The displayed data should be limited to what is necessary for consultation.  
+- The displayed data should be limited to what is necessary for consultation.
