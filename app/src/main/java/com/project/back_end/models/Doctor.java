@@ -39,11 +39,13 @@ public class Doctor {
     private String password;
 
     @NotNull(message = "Phone number cannot be null")
-    @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
+    @Pattern(
+    regexp = "(\\d{10}|\\d{3}-\\d{3}-\\d{4})",
+    message = "Phone number must be 10 digits or in format XXX-XXX-XXXX")
     @Column(nullable = false, unique = true)
     private String phone;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "doctor_available_times", joinColumns = @JoinColumn(name = "doctor_id"))
     @Column(name = "available_time")
     private List<String> availableTimes;

@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinic Management System</title>
+    <link rel="icon" type="image/png" href="./assets/images/logo/logo.png" />
+
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script src="./js/util.js" defer></script>
+    <script src="./js/render.js" defer></script>
+    <script src="./js/components/header.js" defer></script>
+    <script src="./js/components/footer.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div id="header"></div>
+
+            <main class="main-content">
+                <h2 id="roleTitle">Select Your Role</h2>
+
+                <div class="role-buttons">
+                    <button id="adminBtn" type="button">Admin</button>
+                    <button id="doctorBtn" type="button">Doctor</button>
+                    <button id="patientBtn" type="button"
+                        onclick="selectRole('patient'); window.location.href='./pages/patientDashboard.html';">
+                        Patient
+                    </button>
+                </div>
+            </main>
+
+            <div id="footer"></div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/services/index.js" defer></script>
+</body>
+</html>
