@@ -22,17 +22,18 @@ window.onload = function () {
 };
 
 function setRoleAndRedirect(role) {
+    const token = localStorage.getItem("token");
+
     if (typeof window.selectRole === "function") {
         window.selectRole(role);
-        return;
+    } else {
+        localStorage.setItem("userRole", role);
     }
 
-    localStorage.setItem("userRole", role);
-
-    if (role === "admin") {
-        window.location.href = "/admin/adminDashboard";
-    } else if (role === "doctor") {
-        window.location.href = "/doctor/doctorDashboard";
+    if (role === "admin" && token) {
+        window.location.href = `/adminDashboard/${token}`;
+    } else if (role === "doctor" && token) {
+        window.location.href = `/doctorDashboard/${token}`;
     }
 }
 
